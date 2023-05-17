@@ -1,57 +1,82 @@
 var myButton = document.querySelector(".button")
 var greetingDisplayHTML = document.querySelector(".space")
+var errorDisplayHTML  = document.querySelector(".errSpace")
 var inputName = document.querySelector(".input")
 var totalGreetingsHTML = document.querySelector(".total")
 var resetButton = document.querySelector(".eraseBtn")
 
-var checkedRadiobtn = document.querySelector('.btns')
+var checkedRadiobtn = document.querySelector('.rbtn')
 
-let totalGreetings = 0
-let greetingDisplay = []
+       
 
-function greet(){
-    let userName = inputName.value.trim()
+const greet = Greet()
 
-    var radioBtn = document.getElementsByName("language")
+const storedWords = localStorage.getItem("counter")
+const storedString = JSON.parse(storedWords)
 
-for (var i = 0; i < radioBtn.length; i++){
-
-if(radioBtn[i].checked && radioBtn[i].value == 'isiXhosa'){
-    if( userName !== null || 0){
-        totalGreetings ++
-        greetingDisplay.push( "Molo " + userName )
-    }
-    totalGreetingsHTML.innerHTML = totalGreetings
-    greetingDisplayHTML.innerHTML = greetingDisplay
+if(localStorage.getItem("counter")){
+    totalGreetingsHTML.innerHTML = storedString.length
 }
 
-else if(radioBtn[i].checked && radioBtn[i].value == 'English'){
-    if( userName !== null || 0){
-        totalGreetings ++
-        greetingDisplay.push( "Hello " + userName )
-    }
-    totalGreetingsHTML.innerHTML = totalGreetings
-    greetingDisplayHTML.innerHTML = greetingDisplay
-}
 
-else if(radioBtn[i].checked && radioBtn[i].value == 'Afrikaans'){
-    if( userName !== null || 0){
-        totalGreetings ++
-        greetingDisplay.push( "Hallo " + userName )
-    }
-    totalGreetingsHTML.innerHTML = totalGreetings
-    greetingDisplayHTML.innerHTML = greetingDisplay
-}
-}
-}
-myButton.addEventListener("click", greet)
+function linkGreetToDom (){
+        var radioBtn = document.querySelector("input[name='language']:checked");
+        let nameRef = inputName.value
+        
+        if (!radioBtn){
+        langRef = radioBtn
+        }
+        else if(radioBtn.value){
+        langRef = radioBtn.value
+        }
 
-function reset(){
-    totalGreetings = 0
-    greetingDisplay = [""]
+        
+        if (storedString && storedString.includes(nameRef)){
+        greet.nameAlreadyExist(nameRef)
+        errorDisplayHTML.innerHTML = greet.getNameAlreadyExist()
+        setTimeout(function () {
+        errorDisplayHTML.innerHTML = ""
+         }, 6000)
 
-    totalGreetingsHTML.innerHTML = totalGreetings
-    greetingDisplayHTML.innerHTML = greetingDisplay
+        }
+        
+        if (!storedString || !storedString.includes(nameRef)){
+        greet.greetings(nameRef, langRef)
+        greetingDisplayHTML.innerHTML = greet.getGreeting()
+        setTimeout(function () {
+        greetingDisplayHTML.innerHTML = ""
+        }, 10000)
+        }
+        
+
+        greet.getCounter()
+        const jsonString = JSON.stringify(greetingDisplay)
+        localStorage.setItem("counter", jsonString)
+        totalGreetingsHTML.innerHTML = greet.getCounter()
+
+        greet.nameError(nameRef)
+        errorDisplayHTML.innerHTML = greet.getNameError()
+        setTimeout(function () {
+        errorDisplayHTML.innerHTML = ""
+        }, 6000)
+
+        greet.radioError(langRef)
+        errorDisplayHTML.innerHTML = greet.getRadioError()
+        setTimeout(function () {
+        errorDisplayHTML.innerHTML = ""
+        }, 6000)
+
+        
+
+
+        if(radioBtn){radioBtn.checked = false} 
+        inputName.value = ""
 }
+myButton.addEventListener("click", linkGreetToDom)
 
+
+
+function reset() {
+    totalGreetingsHTML.innerHTML = 0
+}
 resetButton.addEventListener("click", reset)
