@@ -1,31 +1,29 @@
 let greetingDisplay = []
 
-let userInput = /^[a-zA-Z]+$/
+function Greet() {
 
 let msg = ''
 let errorMsg = ""
 
-function Greet() {
-    
     function greetings(name, lang){ 
         
         if (lang == 'isiXhosa') {
                 if(name){msg = "Molo, " + name}
-                if(!greetingDisplay.includes(name) && name){
+                if(greetingDisplay && !greetingDisplay.includes(name) && name){
                     greetingDisplay.push(name)
                 }
                
             }
         else if (lang == 'English') {
                 if(name){msg = "Hello, " + name}
-                if(!greetingDisplay.includes(name) && name){
+                if(greetingDisplay && !greetingDisplay.includes(name) && name){
                     greetingDisplay.push(name)
                 }
                 
             }
         else if (lang == 'Afrikaans') {
                 if(name){msg = "Hallo, " + name}
-                if(!greetingDisplay.includes(name) && name){
+                if(greetingDisplay && !greetingDisplay.includes(name) && name){
                     greetingDisplay.push(name)
                 }
                 
@@ -38,12 +36,10 @@ function Greet() {
         }
     
     function getCounter(){
-        return greetingDisplay.length
+            return greetingDisplay.length
         }
 
-    
-
-      function nameError(name){
+    function nameError(name){
         if(!name){
             errorMsg = "Please enter your name!"
         }
@@ -63,13 +59,37 @@ function Greet() {
         return errorMsg
     }
 
-    function nameAlreadyExist(name){
+    function nameAlreadyExist(){
               errorMsg = "Name is already greeted!"
-      }
+    }
 
-     function getNameAlreadyExist(){
+    function getNameAlreadyExist(){
          return errorMsg
-      }
+    }
+    function nameAndRadioError(name, lang){
+        if(!name && !lang){
+            errorMsg = "Please enter your name and select a language!"
+        } 
+    }
+    function getNameAndRadioError(){
+        return errorMsg
+    }
+
+    function clearedCounter(){
+        errorMsg = "You have cleared the counter!"
+    }
+
+    function getClearedCounter(){
+        return errorMsg
+    }
+
+    function nameNotAllowed(name){
+        errorMsg = "Numbers and special characters are not allowed!"
+    }
+
+    function getNameNotAllowed(){
+        return errorMsg
+    }
     return {
         greetings,
         getGreeting,
@@ -79,9 +99,13 @@ function Greet() {
         radioError,
         getRadioError,
         nameAlreadyExist,
-        getNameAlreadyExist
+        getNameAlreadyExist,
+        nameAndRadioError,
+        getNameAndRadioError,
+        clearedCounter,
+        getClearedCounter,
+        nameNotAllowed,
+        getNameNotAllowed
        }
-   
-       
     } 
     //GREETINGS

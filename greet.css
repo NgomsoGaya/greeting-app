@@ -108,3 +108,12 @@ label {
     margin-right: 15%;
     margin-bottom: 5%;
 }
+
+.clearSpace{
+    font-size: 120%;
+    background-color: rgba(46, 139, 86, 0.356);
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
