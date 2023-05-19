@@ -25,7 +25,8 @@ function linkGreetToDom (){
         const pattern = /^[a-zA-Z]+$/;
 
         var radioBtn = document.querySelector("input[name='language']:checked");
-        let nameRef = inputName.value
+        let nameReference  = inputName.value
+        let nameRef = nameReference.toLowerCase() 
         
         if (!radioBtn){
         langRef = radioBtn
