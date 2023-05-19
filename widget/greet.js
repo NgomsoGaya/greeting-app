@@ -67,15 +67,9 @@ function linkGreetToDom (){
             }, 6000)
         }
 
-        if (storedString && storedString.includes(nameRef)){   
-        greet.nameAlreadyExist()
-        errorDisplayHTML.innerHTML = greet.getNameAlreadyExist()
-        setTimeout(function () {
-        errorDisplayHTML.innerHTML = ""
-        }, 6000)
-        }
+        
 
-        else if(nameRef && pattern.test(nameRef) == true && langRef && storedString && !storedString.includes(nameRef)){
+        if(nameRef && pattern.test(nameRef) == true && langRef && storedString && !storedString.includes(nameRef)){
         greet.greetings(nameRef, langRef)
         greetingDisplayHTML.innerHTML = greet.getGreeting()
         setTimeout(function () {
@@ -84,7 +78,13 @@ function linkGreetToDom (){
         if(radioBtn){radioBtn.checked = false} 
         inputName.value = ""
         }       
-
+        else if (storedString && storedString.includes(nameRef)){   
+        greet.nameAlreadyExist()
+        errorDisplayHTML.innerHTML = greet.getNameAlreadyExist()
+        setTimeout(function () {
+        errorDisplayHTML.innerHTML = ""
+        }, 6000)
+        }
     greet.getCounter()
     const jsonString = JSON.stringify(greetingDisplay)
     localStorage.setItem("counter", jsonString)
@@ -95,8 +95,10 @@ myButton.addEventListener("click", linkGreetToDom)
 
 
 function reset() {
-    totalGreetingsHTML.innerHTML = 0
-    localStorage.clear();
+    greet.clearCounter()
+
+    totalGreetingsHTML.innerHTML = greet.clearCounter()
+    localStorage.clear() ;
 
     greet.clearedCounter()
     clearDisplayHTML.innerHTML = greet.getClearedCounter()

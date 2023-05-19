@@ -4,6 +4,7 @@ function Greet() {
 
 let msg = ''
 let errorMsg = ""
+let counter = 0
 
     function greetings(name, lang){ 
         
@@ -90,6 +91,14 @@ let errorMsg = ""
     function getNameNotAllowed(){
         return errorMsg
     }
+
+    function clearCounter(){
+     greetingDisplay.length = counter
+    }
+
+    function getClearedCounter2(){
+        return greetingDisplay.length
+    }
     return {
         greetings,
         getGreeting,
@@ -105,7 +114,9 @@ let errorMsg = ""
         clearedCounter,
         getClearedCounter,
         nameNotAllowed,
-        getNameNotAllowed
+        getNameNotAllowed,
+        clearCounter,
+        getClearedCounter2
        }
     } 
     //GREETINGS
