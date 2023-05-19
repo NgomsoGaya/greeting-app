@@ -7,21 +7,21 @@ let errorMsg = ""
 
     function greetings(name, lang){ 
         
-        if (lang == 'isiXhosa') {
+        if (lang == 'isiXhosa' && !greetingDisplay.includes(name)) {
                 if(name){msg = "Molo, " + name}
                 if(greetingDisplay && !greetingDisplay.includes(name) && name){
                     greetingDisplay.push(name)
                 }
                
             }
-        else if (lang == 'English') {
+        else if (lang == 'English' && !greetingDisplay.includes(name)) {
                 if(name){msg = "Hello, " + name}
                 if(greetingDisplay && !greetingDisplay.includes(name) && name){
                     greetingDisplay.push(name)
                 }
                 
             }
-        else if (lang == 'Afrikaans') {
+        else if (lang == 'Afrikaans' && !greetingDisplay.includes(name)) {
                 if(name){msg = "Hallo, " + name}
                 if(greetingDisplay && !greetingDisplay.includes(name) && name){
                     greetingDisplay.push(name)
