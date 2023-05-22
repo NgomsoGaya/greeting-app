@@ -11,70 +11,6 @@ body, html{
     text-align: center;
 
 }
-p{
-    font-size: 250%;
-    flex: 1;
-}
-
-h1 {
-   margin-top: 0%;
-   margin-bottom: 0%;
-   font-size:500%
-}
-
-h4{
-   font-size: 150%;
-   flex: 1;
-   display: flex;
-   text-align: center;
-   justify-content: center;
-   align-items: center;
-}
-
-input{
-    height: 140%;
-    flex: 1;
-    border-radius: 2%;
-}
-
-.inputName{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    
-}
-
-button {
-    padding: 1%;
-    border-radius: 2%;
-    display: block;
-    margin: auto;
-}
-
-.radiobtn1 {
-    display: flex;
-    flex-direction: column;
-}
-.radiobtn2 {
-    display: flex;
-    flex-direction: column;
-}
-.radiobtn3 {
-    display: flex;
-    flex-direction: column;
-}
-.btns {
-   display: inline-flex;
-}
-label {
-    margin-left: 10%;
-    margin-bottom: 5%;
-}
-.buttons {
-    display: flex;
-}
-
 .space{
     font-size: 120%;
     background-color: rgba(46, 139, 86, 0.356);
@@ -84,7 +20,6 @@ label {
     margin-right: 20%;
    
 }
-
 .backdrop{
     background-color: rgba(245, 245, 245, 0.39);
     padding-left: 10%;
@@ -108,7 +43,6 @@ label {
     margin-right: 15%;
     margin-bottom: 5%;
 }
-
 .clearSpace{
     font-size: 120%;
     background-color: rgba(46, 139, 86, 0.356);
@@ -116,4 +50,68 @@ label {
     padding-right: 15%;
     margin-left: 20%;
     margin-right: 20%;
+}
+
+
+h1 {
+   margin-top: 0%;
+   margin-bottom: 0%;
+   font-size:500%
+}
+.btns {
+    display: block;
+ }
+@media(min-width: 560px){
+p{
+    font-size: 250%;
+    flex: 1;
+}
+h4{
+   font-size: 150%;
+   flex: 1;
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+}
+
+input{
+    height: 140%;
+    flex: 1;
+    border-radius: 2%;
+}
+
+.inputName{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+button {
+    padding: 1%;
+    border-radius: 2%;
+    display: block;
+    margin: auto;
+}
+.radiobtn1 {
+    display: flex;
+    flex-direction: column;
+}
+.radiobtn2 {
+    display: flex;
+    flex-direction: column;
+}
+.radiobtn3 {
+    display: flex;
+    flex-direction: column;
+}
+.btns {
+   display: inline-flex;
+}
+label {
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+.buttons {
+    display: flex;
+}
 }
