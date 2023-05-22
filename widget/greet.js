@@ -85,7 +85,6 @@ function linkGreetToDom (){
         errorDisplayHTML.innerHTML = ""
         }, 6000)
         }
-        
     greet.getCounter()
     const jsonString = JSON.stringify(greetingDisplay)
     localStorage.setItem("counter", jsonString)
